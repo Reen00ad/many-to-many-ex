@@ -52,19 +52,19 @@ public class StudentService {
         studentRepository.delete(s);
     }
 
-    public Student changeMajor(Integer id,String newmajor){
+    public void changeMajor(Integer id,String newmajor){
         Student s=studentRepository.findStudentById(id);
         if(s==null){
             throw new ApiException("not found");
         }
 
-        Student student=studentRepository.findByIdAndCoursesIsNotNull(id);
-        if (student != null){
-            student.setMajor(newmajor);
-            student.getCourses().clear();
-            return studentRepository.save(student);
+         s=studentRepository.findByIdAndCoursesIsNotNull(id);
+        if (s != null){
+            s.setMajor(newmajor);
+            s.getCourses().clear();
+             studentRepository.save(student);
         }
-        return null;
+      
     }
 
 
