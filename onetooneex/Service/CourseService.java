@@ -89,7 +89,7 @@ public class CourseService {
         }
 
 
-        return courseRepository.findStudentByCourseid(id);
+      return  (List<Student>) c.getStudents();
     }
 
 
