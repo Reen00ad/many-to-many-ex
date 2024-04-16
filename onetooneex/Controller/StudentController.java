@@ -44,10 +44,10 @@ public class StudentController {
     }
 
     @PutMapping("/change/{id}/{major}")
-    public ResponseEntity<Student> changeMajor(@PathVariable Integer id,@PathVariable String major){
+    public ResponseEntity changeMajor(@PathVariable Integer id,@PathVariable String major){
 
-        Student s=studentService.changeMajor(id, major);
-        return ResponseEntity.status(200).body(s);
+        studentService.changeMajor(id, major);
+        return ResponseEntity.status(200).body(new ApiResponse("change done"));
     }
 
 }
